@@ -1,3 +1,4 @@
+import data from "@/utils/data";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 
@@ -475,95 +476,25 @@ export default function Home() {
             {/* Product Start */}
             <div className="flex flex-wrap justify-between gap-2">
               {/* Card 1 */}
-              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-full h-36 object-cover"
-                />
-                <div className="text-center">
-                  <p className="my-1 text-gray-500 font-semibold">$99.99</p>
-                  <hr />
-                  <h2 className="mt-1 mb-2 text-xs font-semibold text-gray-800">
-                    Product Name
-                  </h2>
+              {data?.products?.map((product) => (
+                <div
+                  key={product}
+                  className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded"
+                >
+                  <img
+                    src={product.image}
+                    alt="Product"
+                    className="w-full h-36 object-cover"
+                  />
+                  <div className="text-center">
+                    <p className="my-1 text-gray-500 font-semibold">${product.price}</p>
+                    <hr />
+                    <h2 className="mt-1 mb-2 text-xs font-semibold text-gray-800 line-clamp-1 px-1">
+                      {product.productName}
+                    </h2>
+                  </div>
                 </div>
-              </div>
-              {/* Card 1 */}
-              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-full h-36 object-cover"
-                />
-                <div className="text-center py-1">
-                  <p className="text-gray-500 font-semibold">$99.99</p>
-                  <hr />
-                  <h2 className="text-xs font-semibold text-gray-800">
-                    Product Name
-                  </h2>
-                </div>
-              </div>
-              {/* Card 1 */}
-              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-full h-36 object-cover"
-                />
-                <div className="text-center py-1">
-                  <p className="text-gray-500 font-semibold">$99.99</p>
-                  <hr />
-                  <h2 className="text-xs font-semibold text-gray-800">
-                    Product Name
-                  </h2>
-                </div>
-              </div>
-              {/* Card 1 */}
-              <div className="md:max-w-[130px] max-w-[110px] my-2 bg-white overflow-hidden rounded">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-full h-36 object-cover"
-                />
-                <div className="text-center py-1">
-                  <p className="text-gray-500 font-semibold">$99.99</p>
-                  <hr />
-                  <h2 className="text-xs font-semibold text-gray-800">
-                    Product Name
-                  </h2>
-                </div>
-              </div>
-              {/* Card 1 */}
-              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-full h-36 object-cover"
-                />
-                <div className="text-center py-1">
-                  <p className="text-gray-500 font-semibold">$99.99</p>
-                  <hr />
-                  <h2 className="text-xs font-semibold text-gray-800">
-                    Product Name
-                  </h2>
-                </div>
-              </div>
-              {/* Card 1 */}
-              <div className="md:max-w-[130px] max-w-[110px] my-2 bg-white overflow-hidden rounded">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-full h-36 object-cover"
-                />
-                <div className="text-center py-1">
-                  <p className="text-gray-500 font-semibold">$99.99</p>
-                  <hr />
-                  <h2 className="text-xs font-semibold text-gray-800">
-                    Product Name
-                  </h2>
-                </div>
-              </div>
+              ))}
             </div>
             {/* Product End */}
           </div>
