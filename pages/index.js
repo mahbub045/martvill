@@ -1,10 +1,44 @@
+"use client";
+import ProductItem from "@/components/ProductItem";
+import { Store } from "@/utils/Store";
 import data from "@/utils/data";
-import { Inter } from "next/font/google";
 import Head from "next/head";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useContext, useState } from "react";
 
 export default function Home() {
+  const [quantity, setQuantity] = useState(1);
+  const { state, dispatch } = useContext(Store);
+  const {
+    cart: { cartItems },
+  } = state;
+
+  const removeItemHandler = (item) => {
+    dispatch({ type: "CART_REMOVE_ITEM", payload: item });
+  };
+
+  const updateCartHandler = (item, qty) => {
+    const quantity = Number(qty);
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+  };
+
+  const decreaseQuantity = (item) => {
+    if (item.quantity > 1) {
+      const newQuantity = item.quantity - 1;
+      updateCartHandler(item, newQuantity);
+    }
+  };
+
+  const increaseQuantity = (item) => {
+    if (item.quantity < item.countInStock) {
+      const newQuantity = item.quantity + 1;
+      updateCartHandler(item, newQuantity);
+    }
+  };
+  const subtotal = cartItems.reduce((a, c) => a + c.quantity * c.price, 0);
+  const tax = subtotal * 0.05;
+  const shippingCost = 50.67;
+  const discount = 10;
+
   return (
     <>
       <Head>
@@ -150,94 +184,104 @@ export default function Home() {
           {/* Profile name and add new user End */}
           {/* Table start */}
           <div className="relative overflow-x-auto mt-3">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-              <tbody>
-                <tr className="bg-white">
-                  <td className="pr-1 py-1 text-right">
-                    <button className="hover:text-blue-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-5 h-5"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                        />
-                      </svg>
-                    </button>
-                  </td>
-                  <td className="px-2 py-2 font-medium text-gray-600 whitespace-nowrap border-t border-b border-l">
-                    Apple MacBook Pro 17
-                  </td>
-                  <td className="px-4 py-2 font-medium text-gray-600 border-t border-b">
-                    $91.00
-                  </td>
-                  <td className="px-4 py-2 border-t border-b">
-                    <div className="flex flex-row justify-center items-center">
-                      <button>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-7 h-7 inline-block mx-1 fill-gray-600 hover:fill-gray-700 text-white"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                          />
-                        </svg>
-                      </button>
-                      <span className="font-medium text-gray-600">5</span>
-                      <button>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-7 h-7 inline-block mx-1 fill-gray-600 hover:fill-gray-700 text-white"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                  <td className="pl-4 py-2 font-medium text-gray-600 border-t border-b border-r">
-                    $2999
-                  </td>
-                  <td className="px-1 py-1">
-                    <button>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-5 h-5 text-red-500 hover:text-white hover:bg-red-500 hover:rounded-md transition-all"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-                        />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            {cartItems.length === 0 ? (
+              <div className="text-center font-semibold rounded-md text-red-500 bg-white p-4 my-2">
+                <p>There are no items in this cart!</p>
+              </div>
+            ) : (
+              <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+                <tbody>
+                  {cartItems.map((item) => (
+                    <tr className="bg-white" key={item.slug}>
+                      <td className="pr-1 py-1 text-right">
+                        <button className="hover:text-blue-500">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                            />
+                          </svg>
+                        </button>
+                      </td>
+                      <td className="px-2 py-2 font-medium text-gray-600 whitespace-nowrap border-t border-b border-l">
+                        {item.productName}
+                      </td>
+                      <td className="px-4 py-2 font-medium text-gray-600 border-t border-b">
+                        {item.price}
+                      </td>
+                      <td className="px-4 py-2 border-t border-b">
+                        <div className="flex flex-row justify-center items-center">
+                          <button onClick={() => decreaseQuantity(item)}>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-7 h-7 inline-block mx-1 fill-gray-600 hover:fill-gray-700 text-white"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </button>
+                          <span className="font-medium text-gray-600">
+                            {item.quantity}
+                          </span>
+                          <button onClick={() => increaseQuantity(item)}>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-7 h-7 inline-block mx-1 fill-gray-600 hover:fill-gray-700 text-white"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                      <td className="pl-4 py-2 font-medium text-gray-600 border-t border-b border-r">
+                        ${(item.quantity * item.price).toFixed(2)}
+                      </td>
+                      <td className="px-1 py-1">
+                        <button onClick={() => removeItemHandler(item)}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5 text-red-500 hover:text-white hover:bg-red-500 hover:rounded-md transition-all"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                            />
+                          </svg>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
           {/* Table end */}
 
@@ -246,19 +290,26 @@ export default function Home() {
             <div className="flex justify-end">
               <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
                 <h6 className="font-normal text-xs text-gray-600">Sub Total</h6>
-                <h3 className="font-semibold text-base text-gray-800">$500</h3>
+                <h3 className="font-semibold text-base text-gray-800">
+                  ${subtotal}
+                </h3>
               </div>
             </div>
             <div className="flex justify-end">
               <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
                 <h6 className="font-normal text-xs text-gray-600">TAX</h6>
-                <h3 className="font-semibold text-base text-gray-800">$500</h3>
+                <h3 className="font-semibold text-base text-gray-800">
+                  ${tax.toFixed(2)}
+                  <span className="text-[10px] text-gray-600">(5%)</span>
+                </h3>
               </div>
             </div>
             <div className="flex justify-end">
               <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
                 <h6 className="font-normal text-xs text-gray-600">Shipping</h6>
-                <h3 className="font-semibold text-base text-gray-800">$500</h3>
+                <h3 className="font-semibold text-base text-gray-800">
+                  ${shippingCost}
+                </h3>
               </div>
             </div>
             <div className="flex justify-end">
@@ -267,7 +318,7 @@ export default function Home() {
                   Discount on Cart
                 </h6>
                 <h3 className="font-semibold text-base text-gray-800">
-                  $10.00
+                  ${discount}
                 </h3>
               </div>
             </div>
@@ -276,11 +327,13 @@ export default function Home() {
           {/* Product count and Total count start */}
           <div className="bg-blue-100 rounded flex justify-between items-center p-3 mr-2">
             <div>
-              <h6 className="text-sm text-blue-600">Products Count(3)</h6>
+              <h6 className="text-sm text-blue-600">
+                Products Count({cartItems.reduce((a, c) => a + c.quantity, 0)})
+              </h6>
             </div>
             <div className="flex items-center gap-20">
               <h2 className="font-semibold text-xl text-blue-600">Total</h2>
-              <h2 className="font-semibold text-xl text-blue-600">$5000.00</h2>
+              <h2 className="font-semibold text-xl text-blue-600">${(subtotal+tax+shippingCost-discount).toFixed(2)}</h2>
             </div>
           </div>
           {/* Product count and Total count end */}
@@ -477,23 +530,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-between gap-2">
               {/* Card 1 */}
               {data?.products?.map((product) => (
-                <div
-                  key={product}
-                  className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded"
-                >
-                  <img
-                    src={product.image}
-                    alt="Product"
-                    className="w-full h-36 object-cover"
-                  />
-                  <div className="text-center">
-                    <p className="my-1 text-gray-500 font-semibold">${product.price}</p>
-                    <hr />
-                    <h2 className="mt-1 mb-2 text-xs font-semibold text-gray-800 line-clamp-1 px-1">
-                      {product.productName}
-                    </h2>
-                  </div>
-                </div>
+                <ProductItem product={product} key={product.slug} />
               ))}
             </div>
             {/* Product End */}
