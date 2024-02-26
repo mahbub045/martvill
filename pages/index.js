@@ -1,16 +1,22 @@
 "use client";
 import ProductItem from "@/components/ProductItem";
+import SideBar from "@/components/SideBar";
 import { Store } from "@/utils/Store";
 import data from "@/utils/data";
 import Head from "next/head";
 import { useContext, useState } from "react";
 
 export default function Home() {
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
   const { state, dispatch } = useContext(Store);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const {
     cart: { cartItems },
   } = state;
+
+  const handleToggleSideBar = () => {
+    setIsSideBarOpen(!isSideBarOpen);
+  };
 
   const removeItemHandler = (item) => {
     dispatch({ type: "CART_REMOVE_ITEM", payload: item });
@@ -48,7 +54,10 @@ export default function Home() {
         <div className="lg:w-[46%] w-full">
           {/* Buttons start */}
           <div className="flex md:flex-row flex-col items-center justify-end xl:gap-3 md:gap-0 px-2">
-            <button className="xl:px-2 lg:px-0 px-2 xl:mr-3 lg:mr-0 mr-3">
+            <button
+              className="xl:px-2 lg:px-0 px-2 xl:mr-3 lg:mr-0 mr-3"
+              onClick={handleToggleSideBar}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -144,7 +153,6 @@ export default function Home() {
             </div>
           </div>
           {/* Buttons end */}
-
           {/* Profile name and add new user Start */}
           <div className="bg-blue-100 rounded flex justify-between items-center py-3 px-6 mt-2 mr-2">
             <h2 className="flex items-center font-medium gap-2 text-blue-600">
@@ -284,45 +292,50 @@ export default function Home() {
             )}
           </div>
           {/* Table end */}
-
           {/* Calculation start */}
-          <div className="my-5 flex flex-col">
-            <div className="flex justify-end">
-              <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
-                <h6 className="font-normal text-xs text-gray-600">Sub Total</h6>
-                <h3 className="font-semibold text-base text-gray-800">
-                  ${subtotal}
-                </h3>
+          {cartItems.length > 0 ? (
+            <div className="my-5 flex flex-col">
+              <div className="flex justify-end">
+                <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
+                  <h6 className="font-normal text-xs text-gray-600">
+                    Sub Total
+                  </h6>
+                  <h3 className="font-semibold text-base text-gray-800">
+                    ${subtotal}
+                  </h3>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
+                  <h6 className="font-normal text-xs text-gray-600">TAX</h6>
+                  <h3 className="font-semibold text-base text-gray-800">
+                    ${tax.toFixed(2)}
+                    <span className="text-[10px] text-gray-600">(5%)</span>
+                  </h3>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
+                  <h6 className="font-normal text-xs text-gray-600">
+                    Shipping
+                  </h6>
+                  <h3 className="font-semibold text-base text-gray-800">
+                    ${shippingCost}
+                  </h3>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
+                  <h6 className="font-semibold text-xs text-blue-600">
+                    Discount on Cart
+                  </h6>
+                  <h3 className="font-semibold text-base text-gray-800">
+                    ${discount}
+                  </h3>
+                </div>
               </div>
             </div>
-            <div className="flex justify-end">
-              <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
-                <h6 className="font-normal text-xs text-gray-600">TAX</h6>
-                <h3 className="font-semibold text-base text-gray-800">
-                  ${tax.toFixed(2)}
-                  <span className="text-[10px] text-gray-600">(5%)</span>
-                </h3>
-              </div>
-            </div>
-            <div className="flex justify-end">
-              <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
-                <h6 className="font-normal text-xs text-gray-600">Shipping</h6>
-                <h3 className="font-semibold text-base text-gray-800">
-                  ${shippingCost}
-                </h3>
-              </div>
-            </div>
-            <div className="flex justify-end">
-              <div className="flex justify-between items-center w-52 border-t p-1 mr-2">
-                <h6 className="font-semibold text-xs text-blue-600">
-                  Discount on Cart
-                </h6>
-                <h3 className="font-semibold text-base text-gray-800">
-                  ${discount}
-                </h3>
-              </div>
-            </div>
-          </div>
+          ) : null}
           {/* Calculation end */}
           {/* Product count and Total count start */}
           <div className="bg-blue-100 rounded flex justify-between items-center p-3 mr-2">
@@ -333,7 +346,12 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-20">
               <h2 className="font-semibold text-xl text-blue-600">Total</h2>
-              <h2 className="font-semibold text-xl text-blue-600">${(subtotal+tax+shippingCost-discount).toFixed(2)}</h2>
+              <h2 className="font-semibold text-xl text-blue-600">
+                $
+                {cartItems.length > 0
+                  ? (subtotal + tax + shippingCost - discount).toFixed(2)
+                  : 0}
+              </h2>
             </div>
           </div>
           {/* Product count and Total count end */}
@@ -539,6 +557,16 @@ export default function Home() {
         </div>
         {/* Right Side end */}
       </div>
+      {/* Drawer start */}
+      {isSideBarOpen && (
+        <>
+          <div className="bg-[#BCBFC2]/60 fixed top-0 h-screen w-screen flex flex-row justify-start z-[2001]">
+            <div onClick={handleToggleSideBar} className="flex-1"></div>
+            <SideBar isOpen={isSideBarOpen} onClose={handleToggleSideBar} />
+          </div>
+        </>
+      )}
+      {/* Drawer end */}
     </>
   );
 }

@@ -6,8 +6,6 @@ const data = {
       image: "/images/image1.png",
       price: 93.51,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Paperbag denim shorts",
@@ -15,8 +13,6 @@ const data = {
       image: "/images/image2.png",
       price: 103.0,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Waist straight Slouchy jeans",
@@ -24,8 +20,6 @@ const data = {
       image: "/images/image3.png",
       price: 41.0,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Asymmetric neckline blouse",
@@ -33,8 +27,6 @@ const data = {
       image: "/images/image1.png",
       price: 45.5,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Paperbag denim shorts",
@@ -42,8 +34,6 @@ const data = {
       image: "/images/image2.png",
       price: 200.2,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Waist straight Slouchy jeans",
@@ -51,8 +41,6 @@ const data = {
       image: "/images/image3.png",
       price: 99.99,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Asymmetric neckline blouse",
@@ -60,8 +48,6 @@ const data = {
       image: "/images/image1.png",
       price: 100.99,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Paperbag denim shorts",
@@ -69,8 +55,6 @@ const data = {
       image: "/images/image2.png",
       price: 50.09,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
       productName: "Waist straight Slouchy jeans",
@@ -78,18 +62,14 @@ const data = {
       image: "/images/image3.png",
       price: 99.99,
       countInStock: 10,
-      tax: 5.0,
-      shipping: 2.29,
     },
     {
-        productName: "Asymmetric neckline blouse",
-        slug: "asymmetric_neckline_blouse3",
-        image: "/images/image1.png",
-        price: 100.99,
-        countInStock: 10,
-        tax: 5.0,
-        shipping: 2.29,
-      },
+      productName: "Asymmetric neckline blouse",
+      slug: "asymmetric_neckline_blouse3",
+      image: "/images/image1.png",
+      price: 100.99,
+      countInStock: 10,
+    },
   ],
 };
 export default data;
