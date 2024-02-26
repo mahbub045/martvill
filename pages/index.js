@@ -12,15 +12,15 @@ export default function Home() {
       <div className="flex lg:flex-row flex-col p-2">
         <div className="lg:w-[46%] w-full">
           {/* Buttons start */}
-          <div className="flex md:flex-row flex-col items-center justify-end xl:gap-3 md:gap-1 px-2">
-            <button className="px-2 mr-3">
+          <div className="flex md:flex-row flex-col items-center justify-end xl:gap-3 md:gap-0 px-2">
+            <button className="xl:px-2 lg:px-0 px-2 xl:mr-3 lg:mr-0 mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-10 h-10"
+                className="xl:w-10 lg:w-6 w-8 xl:h-10 lg:h-6 h-8"
               >
                 <path
                   strokeLinecap="round"
@@ -29,15 +29,15 @@ export default function Home() {
                 />
               </svg>
             </button>
-            <div className="flex flex-col w-full lg:justify-end justify-center md:flex-row xl:gap-5 lg:gap-1 md:gap-5">
-              <button className="flex justify-center items-center gap-2 xl:text-base lg:text-sm text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
+            <div className="flex flex-col w-full lg:justify-end justify-center md:flex-row xl:gap-3 lg:gap-1 md:gap-5">
+              <button className="flex justify-center items-center gap-1 xl:text-base lg:text-sm text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -47,14 +47,14 @@ export default function Home() {
                 </svg>
                 Note
               </button>
-              <button className="flex justify-center items-center gap-2 xl:text-base lg:text-sm text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
+              <button className="flex justify-center items-center gap-1 xl:text-base lg:text-sm text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -64,10 +64,10 @@ export default function Home() {
                 </svg>
                 Shipping
               </button>
-              <button className="flex justify-center items-center gap-2 xl:text-base lg:text-sm text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
+              <button className="flex justify-center items-center gap-1 xl:text-base lg:text-sm text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-circle-dashed"
+                  className="icon icon-tabler icon-tabler-circle-dashed xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -89,14 +89,14 @@ export default function Home() {
                 </svg>
                 Hold Orders
               </button>
-              <button className="flex justify-center items-center gap-2 xl:text-base lg:text-xs text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
+              <button className="flex justify-center items-center gap-1 xl:text-base lg:text-xs text-base font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-2 rounded mb-2 md:mb-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 fill-blue-600 text-white"
+                  className="xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6 fill-blue-600 text-white"
                 >
                   <path
                     strokeLinecap="round"
@@ -285,14 +285,14 @@ export default function Home() {
           {/* Product count and Total count end */}
           {/* Cancle, Hold, Discount, PayNow Button start */}
           <div className="my-2 flex flex-col md:flex-row md:justify-between md:mr-2">
-            <button className="flex justify-center gap-2 px-5 py-2 rounded items-center bg-red-200 text-red-500 hover:bg-red-300 font-semibold text-xl mb-2 md:mb-0">
+            <button className="flex justify-center gap-2 xl:px-5 lg:px-2 px-5 xl:py-2 lg:py-2 py-2 rounded items-center bg-red-200 text-red-500 hover:bg-red-300 font-semibold xl:text-xl lg:text-sm text-xl mb-2 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
               >
                 <path
                   strokeLinecap="round"
@@ -302,10 +302,10 @@ export default function Home() {
               </svg>
               Cancel
             </button>
-            <button className="flex justify-center gap-2 px-5 py-2 rounded items-center bg-[#DEE1F3] hover:bg-[#d3d8f1] text-[#6C78CA] font-semibold text-xl mb-2 md:mb-0">
+            <button className="flex justify-center gap-2 xl:px-5 lg:px-2 px-5 xl:py-2 lg:py-2 py-2 rounded items-center bg-[#DEE1F3] hover:bg-[#d3d8f1] text-[#6C78CA] font-semibold xl:text-xl lg:text-sm text-xl mb-2 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-hand-grab"
+                className="icon icon-tabler icon-tabler-hand-grab xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -323,10 +323,10 @@ export default function Home() {
               </svg>
               Hold
             </button>
-            <button className="flex justify-center gap-2 px-5 py-2 rounded items-center bg-[#DEE1F3] hover:bg-[#d3d8f1] text-[#6C78CA] font-semibold text-xl mb-2 md:mb-0">
+            <button className="flex justify-center gap-2 xl:px-5 lg:px-2 px-5 xl:py-2 lg:py-2 py-2 rounded items-center bg-[#DEE1F3] hover:bg-[#d3d8f1] text-[#6C78CA] font-semibold xl:text-xl lg:text-sm text-xl mb-2 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-circle-percentage"
+                className="icon icon-tabler icon-tabler-circle-percentage xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -344,14 +344,14 @@ export default function Home() {
               </svg>
               Discount
             </button>
-            <button className="flex justify-center gap-2 px-5 py-2 rounded items-center bg-blue-100 hover:bg-blue-200 text-blue-500 font-semibold text-xl">
+            <button className="flex justify-center gap-2 xl:px-5 lg:px-2 px-5 xl:py-2 lg:py-2 py-2 rounded items-center bg-blue-100 hover:bg-blue-200 text-blue-500 font-semibold xl:text-xl lg:text-sm text-xl mb-2 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="xl:w-6 lg:w-5 w-6 xl:h-6 lg:h-5 h-6"
               >
                 <path
                   strokeLinecap="round"
@@ -411,20 +411,20 @@ export default function Home() {
           {/* Category and Product Start */}
           <div className="border-[#C2C2C3] border-l px-4 py-2">
             {/* Category start */}
-            <div className="flex gap-1">
-              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold">
+            <div className="sm:flex hidden justify-between gap-1">
+              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold xl:text-base md:text-xs">
                 All Categories
               </button>
-              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold">
+              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold xl:text-base md:text-xs">
                 Electronics
               </button>
-              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold">
+              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold xl:text-base md:text-xs">
                 Home & Lifestyle
               </button>
-              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold">
+              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold xl:text-base md:text-xs">
                 Men Fashion
               </button>
-              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold">
+              <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold xl:text-base md:text-xs">
                 Women Fashion
               </button>
               <button className="text-gray-500 hover:text-blue-500">
@@ -444,11 +444,38 @@ export default function Home() {
                 </svg>
               </button>
             </div>
+            <div className="md:hidden sm:flex justify-center items-center text-center">
+              <button className="text-gray-600 hover:text-blue-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-grid-dots"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M5 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M19 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M19 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                </svg>
+              </button>
+            </div>
             {/* Category end */}
             {/* Product Start */}
             <div className="flex flex-wrap justify-between gap-2">
               {/* Card 1 */}
-              <div className="max-w-[130px]  my-2 bg-white overflow-hidden">
+              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded">
                 <img
                   src="https://via.placeholder.com/50"
                   alt="Product"
@@ -463,7 +490,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Card 1 */}
-              <div className="max-w-[130px]  my-2 bg-white overflow-hidden">
+              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded">
                 <img
                   src="https://via.placeholder.com/50"
                   alt="Product"
@@ -478,7 +505,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Card 1 */}
-              <div className="max-w-[130px]  my-2 bg-white overflow-hidden">
+              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden">
                 <img
                   src="https://via.placeholder.com/50"
                   alt="Product"
@@ -493,7 +520,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Card 1 */}
-              <div className="max-w-[130px]  my-2 bg-white overflow-hidden">
+              <div className="md:max-w-[130px] max-w-[110px] my-2 bg-white overflow-hidden rounded">
                 <img
                   src="https://via.placeholder.com/50"
                   alt="Product"
@@ -508,7 +535,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Card 1 */}
-              <div className="max-w-[130px]  my-2 bg-white overflow-hidden">
+              <div className="md:max-w-[130px] max-w-[110px]  my-2 bg-white overflow-hidden rounded">
                 <img
                   src="https://via.placeholder.com/50"
                   alt="Product"
@@ -523,7 +550,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Card 1 */}
-              <div className="max-w-[130px]  my-2 bg-white overflow-hidden">
+              <div className="md:max-w-[130px] max-w-[110px] my-2 bg-white overflow-hidden rounded">
                 <img
                   src="https://via.placeholder.com/50"
                   alt="Product"
