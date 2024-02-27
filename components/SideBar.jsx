@@ -1,10 +1,10 @@
 const SideBar = ({ isOpen, onClose, children }) => {
-  const drawerClasses = isOpen ? "translate-x-0" : "translate-x-full";
+  const sideBarClasses = isOpen ? "translate-x-0" : "translate-x-full";
   return (
     <div
-      className={`fixed top-0 left-0 bottom-0 z-[99999] md:w-1/4 sm:w-1/2 bg-white shadow-xl transform transition-transform duration-300 ${drawerClasses}`}
+      className={`fixed top-0 left-0 bottom-0 z-[99999] md:w-1/4 sm:w-1/2 bg-white shadow-xl transform transition-transform duration-300 ${sideBarClasses}`}
     >
-      <div className={`h-full flex flex-col ${drawerClasses}`}>
+      <div className={`h-full flex flex-col ${sideBarClasses}`}>
         <div className="">
           {/* Cancle BUtton start */}
           <div className="relative">

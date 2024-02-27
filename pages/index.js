@@ -1,4 +1,5 @@
 "use client";
+import CategoryBar from "@/components/CategoryBar";
 import ProductItem from "@/components/ProductItem";
 import SideBar from "@/components/SideBar";
 import { Store } from "@/utils/Store";
@@ -10,12 +11,16 @@ export default function Home() {
   // const [quantity, setQuantity] = useState(1);
   const { state, dispatch } = useContext(Store);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [isCategoryBarOpen, setIsCategoryBarOpen] = useState(false);
   const {
     cart: { cartItems },
   } = state;
 
   const handleToggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
+  };
+  const handleToggleCategoryBar = () => {
+    setIsCategoryBarOpen(!isCategoryBarOpen);
   };
 
   const removeItemHandler = (item) => {
@@ -499,7 +504,10 @@ export default function Home() {
               <button className="px-3 py-1 text-gray-500 hover:text-blue-500 border border-slate-500 hover:border-blue-500 rounded font-semibold xl:text-base md:text-xs">
                 Women Fashion
               </button>
-              <button className="text-gray-500 hover:text-blue-500">
+              <button
+                className="text-gray-500 hover:text-blue-500"
+                onClick={handleToggleCategoryBar}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -517,7 +525,10 @@ export default function Home() {
               </button>
             </div>
             <div className="md:hidden sm:flex justify-center items-center text-center">
-              <button className="text-gray-600 hover:text-blue-500">
+              <button
+                className="text-gray-600 hover:text-blue-500"
+                onClick={handleToggleCategoryBar}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-grid-dots"
@@ -563,6 +574,17 @@ export default function Home() {
           <div className="bg-[#BCBFC2]/60 fixed top-0 h-screen w-screen flex flex-row justify-start z-[2001]">
             <div onClick={handleToggleSideBar} className="flex-1"></div>
             <SideBar isOpen={isSideBarOpen} onClose={handleToggleSideBar} />
+          </div>
+        </>
+      )}
+      {isCategoryBarOpen && (
+        <>
+          <div className="bg-[#BCBFC2]/60 fixed top-0 h-screen w-screen flex flex-row justify-start z-[2001]">
+            <div onClick={handleToggleCategoryBar} className="flex-1"></div>
+            <CategoryBar
+              isCategoryBarOpen={isCategoryBarOpen}
+              onCloseCategoryBar={handleToggleCategoryBar}
+            />
           </div>
         </>
       )}
