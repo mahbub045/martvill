@@ -25,7 +25,7 @@ const ProductItem = ({ product }) => {
       >
         <img
           src={product.image}
-          alt="Product"
+          alt={product.productName}
           className="w-full h-36 object-cover"
         />
         <div className="text-center">
