@@ -1,4 +1,5 @@
 "use client";
+import AddNewCustomer from "@/components/AddNewCustomer";
 import CategoryBar from "@/components/CategoryBar";
 import ProductItem from "@/components/ProductItem";
 import SideBar from "@/components/SideBar";
@@ -12,6 +13,7 @@ export default function Home() {
   const { state, dispatch } = useContext(Store);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const [isCategoryBarOpen, setIsCategoryBarOpen] = useState(false);
+  const [isNewCustomerOpen, setIsNewCustomerOpen] = useState(false);
   const {
     cart: { cartItems },
   } = state;
@@ -21,6 +23,9 @@ export default function Home() {
   };
   const handleToggleCategoryBar = () => {
     setIsCategoryBarOpen(!isCategoryBarOpen);
+  };
+  const handleToggleNewCustomer = () => {
+    setIsNewCustomerOpen(!isNewCustomerOpen);
   };
 
   const removeItemHandler = (item) => {
@@ -177,7 +182,10 @@ export default function Home() {
               </svg>
               Steve Jobs
             </h2>
-            <button className="hover:bg-blue-300 rounded-full">
+            <button
+              className="hover:bg-blue-300 rounded-full"
+              onClick={handleToggleNewCustomer}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -568,7 +576,7 @@ export default function Home() {
         </div>
         {/* Right Side end */}
       </div>
-      {/* Drawer start */}
+      {/* Draweres start */}
       {isSideBarOpen && (
         <>
           <div className="bg-[#BCBFC2]/60 fixed top-0 h-screen w-screen flex flex-row justify-start z-[2001]">
@@ -588,7 +596,18 @@ export default function Home() {
           </div>
         </>
       )}
-      {/* Drawer end */}
+      {isNewCustomerOpen && (
+        <>
+          <div className="bg-[#BCBFC2]/60 fixed top-0 h-screen w-screen flex flex-row justify-start z-[2001]">
+            <div onClick={handleToggleNewCustomer} className="flex-1"></div>
+            <AddNewCustomer
+              isNewCustomerOpen={isNewCustomerOpen}
+              onCloseNewCustomer={handleToggleNewCustomer}
+            />
+          </div>
+        </>
+      )}
+      {/* Draweres end */}
     </>
   );
 }
