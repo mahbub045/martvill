@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 const AddNewCustomer = ({ isNewCustomerOpen, onCloseNewCustomer }) => {
@@ -108,9 +109,7 @@ const AddNewCustomer = ({ isNewCustomerOpen, onCloseNewCustomer }) => {
                   placeholder="Currency"
                   className="focus:outline-none text-sm text-gray-400"
                 >
-                  <option value="">
-                    Currency
-                  </option>
+                  <option value="">Currency</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
                   <option value="GBP">GBP</option>

@@ -70,6 +70,41 @@ const data = {
       price: 100.99,
       countInStock: 10,
     },
+    {
+      productName: "Waist straight Slouchy jeans",
+      slug: "Waist_straight_Slouchy_jeans14",
+      image: "/images/image3.png",
+      price: 99.99,
+      countInStock: 10,
+    },
+    {
+      productName: "Asymmetric neckline blouse",
+      slug: "asymmetric_neckline_blouse234",
+      image: "/images/image1.png",
+      price: 100.99,
+      countInStock: 10,
+    },
+    {
+      productName: "Paperbag denim shorts",
+      slug: "paperbag_denim_shorts2q234",
+      image: "/images/image2.png",
+      price: 50.09,
+      countInStock: 10,
+    },
+    {
+      productName: "Waist straight Slouchy jeans",
+      slug: "Waist_straight_Slouchy_jeans245",
+      image: "/images/image3.png",
+      price: 99.99,
+      countInStock: 10,
+    },
+    {
+      productName: "Asymmetric neckline blouse",
+      slug: "asymmetric_neckline_blouse3ere3",
+      image: "/images/image1.png",
+      price: 100.99,
+      countInStock: 10,
+    },
   ],
 };
 export default data;

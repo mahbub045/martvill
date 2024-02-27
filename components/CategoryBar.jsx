@@ -45,7 +45,6 @@ const buttonData = [
   { text: "Electronics", category: "electronics" },
   { text: "Toys", category: "toys" },
   { text: "Woman Fashions", category: "woman_fashions" },
-  
 ];
 
 const CategoryBar = ({ isCategoryBarOpen, onCloseCategoryBar, children }) => {
