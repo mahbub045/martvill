@@ -58,6 +58,7 @@ export default function Home() {
     <>
       <Head>
         <title>Martvill | POS</title>
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
       <div className="flex lg:flex-row flex-col p-2">
         <div className="lg:w-[46%] w-full">
